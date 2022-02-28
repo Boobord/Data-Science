@@ -1,0 +1,6 @@
+MATCH path = (n:Place {id: 'Amsterdam'})-[:MINST*]-()
+WITH relationships(path) AS rels
+UNWIND rels AS rel
+WITH DISTINCT rel AS rel
+RETURN startNode(rel).id AS source, endNode(rel).id AS destination, rel.writeCost AS
+cost
