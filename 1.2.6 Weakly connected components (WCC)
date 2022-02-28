@@ -1,0 +1,4 @@
+CALL gds.wcc.stream('GraphTriang')
+YIELD nodeId, componentId
+RETURN gds.util.asNode(nodeId).id AS libraries, componentId
+ORDER BY componentId, libraries
