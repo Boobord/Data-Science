@@ -1,0 +1,6 @@
+CALL gds.alpha.triangles('GraphTriang')
+YIELD nodeA, nodeB, nodeC
+RETURN
+gds.util.asNode(nodeA).id AS nodeA,
+gds.util.asNode(nodeB).id AS nodeB,
+gds.util.asNode(nodeC).id AS nodeC
