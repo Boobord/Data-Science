@@ -1,0 +1,16 @@
+MATCH (start:Place {id: 'Amsterdam'}),(end:Place {id:'London'})
+CALL gds.alpha.shortestPath.stream({
+nodeProjection: 'Place',
+relationshipProjection: {
+EROAD: {
+type: 'EROAD',
+properties: 'distance',
+orientation: 'UNDIRECTED'
+}
+},
+startNode: start,
+endNode: end,
+relationshipWeightProperty: 'distance'
+})
+YIELD nodeId, cost
+RETURN gds.util.asNode(nodeId).id AS name, cost
