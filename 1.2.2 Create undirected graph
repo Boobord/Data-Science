@@ -1,0 +1,9 @@
+call gds.graph.create(
+'GraphTriang',
+'Library',
+{
+DEPENDS_ON:{
+orientation: 'UNDIRECTED'
+}
+}
+)
