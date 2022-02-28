@@ -1,6 +1,0 @@
-LOAD CSV WITH HEADERS FROM 'file:///transport-nodes.csv' AS row
-MERGE (place:Place {id:row.id})
-SET place.latitude = toFloat(row.latitude),
-place.longitude = toFloat(row.latitude),
-place.population = toInteger(row.population)
-RETURN place
