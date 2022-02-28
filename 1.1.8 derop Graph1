@@ -1,2 +1,1 @@
-MATCH (user:User {id: "Jason"})
-DETACH DELETE user
+call gds.graph.drop('myGraph1')YIELD graphName;
