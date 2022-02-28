@@ -1,0 +1,2 @@
+LOAD CSV WITH HEADERS FROM 'file:///social-nodes.csv' AS row
+MERGE (:User {id:row.id})
