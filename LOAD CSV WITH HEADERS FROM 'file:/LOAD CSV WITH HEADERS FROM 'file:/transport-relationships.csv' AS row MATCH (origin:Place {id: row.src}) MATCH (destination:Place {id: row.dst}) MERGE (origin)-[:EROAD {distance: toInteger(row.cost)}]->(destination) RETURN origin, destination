@@ -1,0 +1,5 @@
+LOAD CSV WITH HEADERS FROM 'file:///transport-relationships.csv' AS row
+MATCH (origin:Place {id: row.src})
+MATCH (destination:Place {id: row.dst})
+MERGE (origin)-[:EROAD {distance: toInteger(row.cost)}]->(destination)
+RETURN origin, destination
