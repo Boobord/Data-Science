@@ -1,0 +1,7 @@
+MATCH (src:Place{id:'Amsterdam'})
+WITH id(src) AS startNode
+CALL gds.alpha.bfs.stream('Graphbfs', {startNode: startNode})
+YIELD path
+UNWIND [ n in nodes(path) | n.id ] AS ids
+RETURN ids
+ORDER BY ids
