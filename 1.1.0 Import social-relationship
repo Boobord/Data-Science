@@ -1,0 +1,5 @@
+LOAD CSV WITH HEADERS FROM 'file:///social-relationships.csv' AS row
+MATCH (origin:User {id: row.src})
+MATCH (destination:User {id: row.dst})
+MERGE (origin)-[:FOLLOWS]->(destination)
+RETURN origin, destination
