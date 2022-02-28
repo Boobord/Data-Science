@@ -1,0 +1,4 @@
+CALL gds.louvain.stream('GraphTriang')
+YIELD nodeId, communityId, intermediateCommunityIds
+RETURN gds.util.asNode(nodeId).id AS libraries, communityId
+ORDER BY libraries ASC
