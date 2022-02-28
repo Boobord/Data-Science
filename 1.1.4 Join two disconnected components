@@ -1,0 +1,5 @@
+WITH ["James", "Michael", "Alice", "Doug", "Amy"] AS existingUsers
+MATCH (existing:User) WHERE existing.id IN existingUsers
+MERGE (newUser:User {id: "Jason"})
+MERGE (newUser)<-[:FOLLOWS]-(existing)
+MERGE (newUser)-[:FOLLOWS]->(existing)
