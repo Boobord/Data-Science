@@ -1,0 +1,7 @@
+CALL gds.alpha.degree.stream({
+nodeProjection: 'User',
+relationshipProjection: 'FOLLOWS'
+})
+YIELD nodeId, score
+RETURN gds.util.asNode(nodeId).id AS name, score AS followers
+ORDER BY followers DESC
