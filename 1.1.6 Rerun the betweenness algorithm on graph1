@@ -1,1 +1,4 @@
-call gds.graph.create('myGraph1','User','FOLLOWS')
+call gds.betweenness.stream('myGraph1')
+YIELD nodeId, score
+RETURN gds.util.asNode(nodeId).id AS name, score 
+ORDER BY name ASC
