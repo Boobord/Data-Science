@@ -1,0 +1,7 @@
+CALL gds.alpha.closeness.stream({
+ nodeProjection:"User",
+ relationshipProjection:"FOLLOWS"
+})
+YIELD nodeId, centrality
+RETURN gds.util.asNode(nodeId).id, centrality
+ORDER BY centrality DESC
