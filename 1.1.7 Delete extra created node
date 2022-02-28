@@ -1,0 +1,2 @@
+MATCH (user:User {id: "Jason"})
+DETACH DELETE user
