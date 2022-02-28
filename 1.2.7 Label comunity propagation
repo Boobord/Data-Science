@@ -1,0 +1,4 @@
+CALL gds.labelPropagation.stream('GraphTriang',{maxIterations: 10})
+YIELD nodeId, communityId AS Community
+RETURN collect(gds.util.asNode(nodeId).id) AS libraries, Community
+ORDER BY Community, libraries
