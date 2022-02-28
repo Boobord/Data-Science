@@ -1,0 +1,17 @@
+MATCH (n:Place {id: 'Amsterdam'})
+CALL gds.alpha.spanningTree.minimum.write({
+nodeProjection: 'Place',
+relationshipProjection: {
+EROAD: {
+type: 'EROAD',
+properties: 'distance',
+orientation: 'UNDIRECTED'
+}
+},
+startNodeId: id(n),
+relationshipWeightProperty: 'distance',
+writeProperty: 'MINST',
+weightWriteProperty: 'writeCost'
+})
+YIELD createMillis, computeMillis, writeMillis, effectiveNodeCount
+RETURN createMillis, computeMillis, writeMillis, effectiveNodeCount;
