@@ -1,0 +1,1 @@
+call gds.graph.create('myGraph1','User','FOLLOWS')
