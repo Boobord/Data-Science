@@ -1,0 +1,5 @@
+CALL gds.localClusteringCoefficient.stream('GraphTriang')
+YIELD nodeId, localClusteringCoefficient
+WHERE localClusteringCoefficient > 0
+RETURN gds.util.asNode(nodeId).id AS library, localClusteringCoefficient
+ORDER BY localClusteringCoefficient DESC
